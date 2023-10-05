@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-card',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardComponent implements OnInit {
 
-  constructor() { }
+  //fazendo injeção de dependencias
+  constructor(private parametrizador: ActivatedRoute) {
+    this.parametrizador.params.subscribe(result => console.log(result))
+
+  }
 
   ngOnInit(): void {
   }

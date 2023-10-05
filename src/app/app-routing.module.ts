@@ -9,7 +9,7 @@ const routes: Routes = [
   //3º - passamos o "pathMatch" e colocamos dentro dele full, pois no path passamos a rota vazia
   {path: '', component: TitleComponent, pathMatch: 'full'},
   //http://localhost:4200/portfolio para acessarmos a outra página
-  {path: 'portfolio', component: CardComponent, pathMatch: 'prefix'},
+  {path: 'portfolio/:id', component: CardComponent, pathMatch: 'prefix'},
   {path: '**', redirectTo:''}
 
 ];
