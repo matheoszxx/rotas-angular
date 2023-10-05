@@ -8,10 +8,14 @@ const routes: Routes = [
   //2º - passamos o componente em que vai ta acessando
   //3º - passamos o "pathMatch" e colocamos dentro dele full, pois no path passamos a rota vazia
   {path: '', component: TitleComponent, pathMatch: 'full'},
-  //http://localhost:4200/portfolio para acessarmos a outra página
-  {path: 'portfolio/:id', component: CardComponent, pathMatch: 'prefix'},
+  //portfolio
+  //portfolio/1
+  //portfolio/1/abc
+  {path: 'portfolio', component: CardComponent, children: [
+    {path: ':id', component: CardComponent},
+    {path: ':id/:token', component: CardComponent},
+  ]},
   {path: '**', redirectTo:''}
-
 ];
 
 @NgModule({
@@ -19,3 +23,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
